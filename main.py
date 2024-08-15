@@ -1,5 +1,6 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 import asyncio
+import os
 
 # Funciones para el manejo de datos
 from lotes.operaciones_lotes import *
