@@ -46,31 +46,6 @@ Para trabajar con el sistema de manera local en tu dispositivo, realizar cambios
     ```
     Todos los valores serán proporcionados por parte de la inmobiliaria, además, en caso de que se trabaje con la primer opción, es decir, en la rama `main` los últimos dos valores pueden ser omitidos
 
-    * Si surje algún problema, intenta agregar la primer y tercer línea del ejemplo, en el archvio de inicio `main.py`, en caso de que no funcione, agrega donde se utilice las variables de entorno, como `operaciones_token.py` y `main.py`, en caso de que estés trabajando en la rama `datos_persistentes` también incluyelos en el archivo `base_datos.py`
-
-        Tome como referencia el siguiente código de ejemplo:
-
-        ```python
-
-        from dotenv import load_dotenv # Agregar al archivo main.py
-        import os
-
-        # Agregar al archvio main.py
-        load_dotenv()  # Carga las variables desde el archivo .env
-
-        # Manera de ejemplo
-        secret_key = os.getenv("SECRET_KEY")
-        database_url = os.getenv("DATABASE_URL")
-
-        # Manera actual
-        secret_key = os.environ['SECRET_KEY']
-        database_url = os.environ['DATABASE_URL']
-
-        print(f"Secret Key: {secret_key}")
-        print(f"Database URL: {database_url}")
-
-        ```
-
 Además, una cosa que puedes realizar, es re ejecutar el `script.sql` para limpiar el archivo `inmobiliaria.db`, si deseas hacer esto, utiliza el comando:
 
 ```
@@ -83,7 +58,7 @@ sqlite3 inmobiliaria.db < script.sql
     uvicorn main:app --reload
     ```
 
-En caso de volver a desplegar, lo único que necesitas hacer es comentar las líneas que acabas de añadir, así como cambiar el valor de la constante a su valor original. Evita que se envie el archivo .env con un archivo .gitignore:
+En caso de volver a desplegar evita que se envie el archivo .env en el .gitignore:
 
 ```
 .env
