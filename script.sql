@@ -15,15 +15,10 @@ CREATE TABLE IF NOT EXISTS usuarios(
     palabra_secreta VARCHAR(60) NOT NULL UNIQUE
 );
 
--- Contraseñas
-/*
-    123456 - palabra_secreta_patricio
-    12345 - palabra_secreta_janneth
-*/
-
 INSERT INTO usuarios(correo_electronico, contraseña, token, palabra_secreta, estado_cuenta) VALUES
-('varrapa25@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'ffff','ebc5471c4cb666a07f25c8c402587de8', FALSE),
-('jannethsantos@gmail.com', '827ccb0eea8a706c4c34a16891f84e7b', 'ffff','87e14cd151ad3dfc5ddab54fb63f2204', FALSE);
+('inmobiliariagruposandoval06@gmail.com', '90d2393d7875b18f4bd2199d233355c6', 'ffff','c08ffd2968a5f0c885d054935e45685d', FALSE),
+('sandovalinmobiliaria30@gmail.com', '90d2393d7875b18f4bd2199d233355c6', 'ffff','50c44f3a8d7006fafd977107edb18742', FALSE),
+('sandovalinmobiliariagrupo@gmail.com', '90d2393d7875b18f4bd2199d233355c6', 'ffff','befea81bbd4d596fa35050599ddbf6c2', FALSE);
 
 DROP TABLE IF EXISTS configuracion;
 
@@ -36,8 +31,9 @@ CREATE TABLE IF NOT EXISTS configuracion(
 );
 
 INSERT INTO configuracion(nombre_usuario, nombre_empresa, correo_empresa) VALUES
-('Patricio de Jesús', 'Inmobiliaria Grupo Sandoval', 'varrapa25@gmail.com'),
-('Janneth Santos', 'Inmobiliaria Grupo Sandoval', 'jannethsantos@gmail.com');;
+('Primer usuario', 'Inmobiliaria Grupo Sandoval', 'inmobiliariagruposandoval06@gmail.com'),
+('Segundo usuario', 'Inmobiliaria Grupo Sandoval', 'sandovalinmobiliaria30@gmail.com'),
+('Tercer usuario', 'Inmobiliaria Grupo Sandoval', 'sandovalinmobiliariagrupo@gmail.com');
 
 -- Tabla de vendedores --
 DROP TABLE IF EXISTS vendedores;
@@ -60,10 +56,10 @@ CREATE TABLE IF NOT EXISTS vendedores(
     lotes_vendidos INTEGER NOT NULL DEFAULT 0
 );
 
-INSERT INTO vendedores (RFC_vendedor, nombres_vendedor, primer_apellido_vendedor, segundo_apellido_vendedor, numero_telefono, correo_electronico, estado, municipio, colonia, calle, numero_exterior, codigo_postal, estado_vendedor, lotes_vendidos)
-VALUES
-('VND1234567890', 'Juan', 'Pérez', 'García', '5551234567', 'juan.perez@example.com', 'Ciudad de México', 'Benito Juárez', 'Nápoles', 'Dakota', '123', '03810', 1, 0),
-('VND2345678901', 'María', 'López', 'Hernández', '5552345678', 'maria.lopez@example.com', 'Jalisco', 'Guadalajara', 'Centro', 'Juárez', '456', '44100', 1, 0);
+-- INSERT INTO vendedores (RFC_vendedor, nombres_vendedor, primer_apellido_vendedor, segundo_apellido_vendedor, numero_telefono, correo_electronico, estado, municipio, colonia, calle, numero_exterior, codigo_postal, estado_vendedor, lotes_vendidos)
+-- VALUES
+-- ('VND1234567890', 'Juan', 'Pérez', 'García', '5551234567', 'juan.perez@example.com', 'Ciudad de México', 'Benito Juárez', 'Nápoles', 'Dakota', '123', '03810', 1, 0),
+-- ('VND2345678901', 'María', 'López', 'Hernández', '5552345678', 'maria.lopez@example.com', 'Jalisco', 'Guadalajara', 'Centro', 'Juárez', '456', '44100', 1, 0);
 
 -- Tabla de clientes --
 DROP TABLE IF EXISTS clientes;
@@ -87,15 +83,15 @@ CREATE TABLE IF NOT EXISTS clientes(
     entrega_comprobante_domicilio BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-INSERT INTO clientes(CURP_cliente, nombres_cliente, primer_apellido_cliente, segundo_apellido_cliente, estado_civil, ocupacion,
-telefono_contacto, calle, numero_exterior, colonia, municipio, codigo_postal, estado, entrega_curp,
-entrega_credencial_elector, entrega_comprobante_domicilio) VALUES
-('VARP040924HHGRMTA0', 'Patricio', 'Vargas', 'Ramírez', 'Soltero', 'Estudiante', '7752060936', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
-'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE),
-('SAMJ010331MHGNLNA7', 'Juan', 'Vargas', 'Ramírez', 'Soltero', 'Estudiante', '7752061936', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
-'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE),
-('SAPO041024HHGRMTA0', 'Fabricia', 'Vargas', 'Ramírez', 'Soltero', 'Maestra', '7752061036', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
-'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE);
+-- INSERT INTO clientes(CURP_cliente, nombres_cliente, primer_apellido_cliente, segundo_apellido_cliente, estado_civil, ocupacion,
+-- telefono_contacto, calle, numero_exterior, colonia, municipio, codigo_postal, estado, entrega_curp,
+-- entrega_credencial_elector, entrega_comprobante_domicilio) VALUES
+-- ('VARP040924HHGRMTA0', 'Patricio', 'Vargas', 'Ramírez', 'Soltero', 'Estudiante', '7752060936', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
+-- 'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE),
+-- ('SAMJ010331MHGNLNA7', 'Juan', 'Vargas', 'Ramírez', 'Soltero', 'Estudiante', '7752061936', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
+-- 'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE),
+-- ('SAPO041024HHGRMTA0', 'Fabricia', 'Vargas', 'Ramírez', 'Soltero', 'Maestra', '7752061036', 'La Araucaria', '123', 'Rinconadas del Bosque Napateco',
+-- 'Tulancingo de Bravo', '43629', 'Hidalgo', TRUE, TRUE, TRUE);
 
 -- Tabla de estados --
 DROP TABLE IF EXISTS estados_republica;
@@ -105,7 +101,7 @@ CREATE TABLE IF NOT EXISTS estados_republica(
     nombre_estado VARCHAR(50) NOT NULL
 );
 
-INSERT INTO estados_republica(nombre_estado) VALUES ('Hidalgo'), ('Yucatan');
+INSERT INTO estados_republica(nombre_estado) VALUES ('Hidalgo');
 
 -- Tabla de municipios --
 DROP TABLE IF EXISTS municipios;
@@ -117,7 +113,7 @@ CREATE TABLE IF NOT EXISTS municipios(
     FOREIGN KEY (id_estado) REFERENCES estados_republica(id_estado) ON DELETE CASCADE
 );
 
-INSERT INTO municipios(nombre_municipio, id_estado) VALUES ('Tulancingo de Bravo', 1);
+-- INSERT INTO municipios(nombre_municipio, id_estado) VALUES ('Tulancingo de Bravo', 1);
 
 -- Tabla de localidades --
 DROP TABLE IF EXISTS localidades;
@@ -129,7 +125,7 @@ CREATE TABLE IF NOT EXISTS localidades(
     FOREIGN KEY (id_municipio) REFERENCES municipios(id_municipio) ON DELETE CASCADE
 );
 
-INSERT INTO localidades(nombre_localidad, id_municipio) VALUES ('Parque Urbano Napateco', 1);
+-- INSERT INTO localidades(nombre_localidad, id_municipio) VALUES ('Parque Urbano Napateco', 1);
 
 -- Tabla de complejos residenciales --
 DROP TABLE IF EXISTS complejos_residenciales;
@@ -142,7 +138,7 @@ CREATE TABLE IF NOT EXISTS complejos_residenciales(
     FOREIGN KEY (id_localidad) REFERENCES localidades(id_localidad) ON DELETE CASCADE
 );
 
-INSERT INTO complejos_residenciales(nombre_complejo, tipo_complejo, id_localidad) VALUES ('Fraccionamiento la Loma', 'Fraccionamiento', 1);
+-- INSERT INTO complejos_residenciales(nombre_complejo, tipo_complejo, id_localidad) VALUES ('Fraccionamiento la Loma', 'Fraccionamiento', 1);
 
 -- Tabla de secciones de complejos --
 DROP TABLE IF EXISTS secciones_complejos;
@@ -156,7 +152,7 @@ CREATE TABLE IF NOT EXISTS secciones_complejos(
     FOREIGN KEY (id_complejo_residencial) REFERENCES complejos_residenciales(id_complejo_residencial) ON DELETE CASCADE
 );
 
-INSERT INTO secciones_complejos(nombre_seccion, color_seccion, cantidad_lotes, id_complejo_residencial) VALUES ('Sección 1', '#4a9898', 5, 1);
+-- INSERT INTO secciones_complejos(nombre_seccion, color_seccion, cantidad_lotes, id_complejo_residencial) VALUES ('Sección 1', '#4a9898', 5, 1);
 
 -- Tabla de lotes secciones --
 DROP TABLE IF EXISTS lotes_secciones;
@@ -179,13 +175,13 @@ CREATE TABLE IF NOT EXISTS lotes_secciones(
     FOREIGN KEY (id_seccion) REFERENCES secciones_complejos(id_seccion) ON DELETE CASCADE
 );
 
-INSERT INTO lotes_secciones(numero_lote, estado_terreno, medida_total, medida_norte, medida_sur, medida_este,
-medida_oeste, servicio_agua, servicio_electricidad, servicio_drenaje, id_seccion) VALUES
-(1, 'Disponible', 450, 112.5, 112.5, 112.5, 112.5, TRUE, TRUE, TRUE, 1),
-(2, 'Disponible', 500, 125, 125, 125, 125, TRUE, TRUE, TRUE, 1),
-(3, 'Disponible', 550, 137.5, 137.5, 137.5, 137.5, TRUE, TRUE, TRUE, 1),
-(4, 'Disponible', 600, 150, 150, 150, 150, TRUE, TRUE, TRUE, 1),
-(5, 'Disponible', 650, 162.5, 162.5, 162.5, 162.5, TRUE, TRUE, TRUE, 1);
+-- INSERT INTO lotes_secciones(numero_lote, estado_terreno, medida_total, medida_norte, medida_sur, medida_este,
+-- medida_oeste, servicio_agua, servicio_electricidad, servicio_drenaje, id_seccion) VALUES
+-- (1, 'Disponible', 450, 112.5, 112.5, 112.5, 112.5, TRUE, TRUE, TRUE, 1),
+-- (2, 'Disponible', 500, 125, 125, 125, 125, TRUE, TRUE, TRUE, 1),
+-- (3, 'Disponible', 550, 137.5, 137.5, 137.5, 137.5, TRUE, TRUE, TRUE, 1),
+-- (4, 'Disponible', 600, 150, 150, 150, 150, TRUE, TRUE, TRUE, 1),
+-- (5, 'Disponible', 650, 162.5, 162.5, 162.5, 162.5, TRUE, TRUE, TRUE, 1);
 
 -- Tabla de compras --
 DROP TABLE IF EXISTS compras;
