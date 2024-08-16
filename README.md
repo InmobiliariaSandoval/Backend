@@ -15,14 +15,14 @@ Para trabajar con el sistema de manera local en tu dispositivo, realizar cambios
 1. Clona el repositorio en tu computadora, para ello asegurate de tener instalado `git` y utilizando el siguiente comando realiza el clonado del repositorio:
 
     ```
-        git clone https://github.com/InmobiliariaSandoval/Backend
+    git clone https://github.com/InmobiliariaSandoval/Backend
     ```
 
 
 2. Una vez que se haya clonado el respositorio, en la carpeta raíz encontrarás el archivo `requirements.txt`, el cuál contiene todas las dependencias que el sistema necesita para funcionar. Para instalar dichas dependencias ejecute el siguiente comando:
 
     ```
-        pip install -r requirements.txt
+    pip install -r requirements.txt
     ```
 
 3. Finalmente, lo que necesitas hacer es crear un archivo llamado `.env` en donde deberás de agregar los siguientes valores:
