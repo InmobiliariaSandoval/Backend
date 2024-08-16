@@ -1,5 +1,6 @@
 from apscheduler.schedulers.background import BackgroundScheduler
 import asyncio
+from dotenv import load_dotenv
 import os
 
 # Funciones para el manejo de datos
@@ -37,12 +38,14 @@ modelos.Base.metadata.create_all(bind=engine)
 # Objeto de la aplicacion
 app = FastAPI()
 
+load_dotenv()
+
 # Objetos de seguridad
 security = HTTPBasic()
 securityBearer = HTTPBearer()
 
 # Orígenes que se permiten conectar a la API
-origins = [os.environ['URL_FRONTEND']]
+origins = [os.getenv('URL_FRONTEND')]
 
 # Configuración de origenes, métodoso, credenciales y cabeceras
 app.add_middleware(
