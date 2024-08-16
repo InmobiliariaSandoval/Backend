@@ -234,18 +234,16 @@ async def enviar_correo_contrasena(db: Session, correo_acceso: EmailStr, palabra
             modelos.Usuarios.palabra_secreta == palabra_secreta
         ).first()
 
-        print(db_usuario)
-
         # Verificar que exista
         if not  db_usuario:
             return False
 
         # Configuraciones
-        API_KEY = os.environ['API_KEY']
-        API_SECRET = os.environ['API_SECRET']
+        API_KEY = os.getenv('API_KEY')
+        API_SECRET = os.getenv('API_SECRET')
 
-        CONTRASENA = os.environ['CONTRASENA']
-        EMAIL_EMPRESA = os.environ['EMAIL_EMPRESA']
+        CONTRASENA = os.getenv('CONTRASENA')
+        EMAIL_EMPRESA = os.getenv('EMAIL_EMPRESA')
 
         mailjet = Client(auth=(API_KEY, API_SECRET), version='v3.1')
         data = {

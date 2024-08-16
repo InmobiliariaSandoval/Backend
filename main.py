@@ -1,4 +1,5 @@
 from apscheduler.schedulers.background import BackgroundScheduler
+from dotenv import load_dotenv
 import asyncio
 import os
 
@@ -31,6 +32,9 @@ from typing import List
 # Módulo de encriptación
 import hashlib
 
+load_dotenv()
+
+
 # Inicializar los módelos de la base de datos
 modelos.Base.metadata.create_all(bind=engine)
 
@@ -42,7 +46,7 @@ security = HTTPBasic()
 securityBearer = HTTPBearer()
 
 # Orígenes que se permiten conectar a la API
-origins = [os.environ['URL_FRONTEND']]
+origins = [os.getenv('URL_FRONTEND')]
 
 # Configuración de origenes, métodoso, credenciales y cabeceras
 app.add_middleware(

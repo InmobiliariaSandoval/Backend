@@ -6,17 +6,17 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 import os
 
-# Credenciales
-TURSO_DATABASE_URL = os.environ['TURSO_URL']
-TURSO_AUTH_TOKEN = os.environ['TURSO_AUTH']
+load_dotenv()
 
+# Credenciales
+TURSO_DATABASE_URL = os.getenv('TURSO_URL')
+TURSO_AUTH_TOKEN = os.getenv('TURSO_AUTH')
 
 # Definir URL de la base de datos
-# SQLALCHEMY_DATABASE_URL = "sqlite:///./inmobiliaria.db"
 dbUrl = f"sqlite+{TURSO_DATABASE_URL}/?authToken={TURSO_AUTH_TOKEN}&secure=true"
-
 
 # Crear el motor de conexión a la base de datos utilizando la URL
 engine = create_engine(
