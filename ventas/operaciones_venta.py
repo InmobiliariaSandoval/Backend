@@ -535,7 +535,6 @@ async def verificar_numero_plazo(db: Session, plazo: esquemas.PlazoCompraCreate,
     except Exception:
         raise Exception("Ocurrió un error al verificar el número de plazo de la compra")
 
-
 async def registrar_pago(db: Session, cantidad_dada: float, identificador_plazo: int) -> bool:
     try:
         # Obtener el plazo a actualizar
@@ -550,8 +549,8 @@ async def registrar_pago(db: Session, cantidad_dada: float, identificador_plazo:
             pago_aplicado = min(db_plazo.restante, excedente)
 
             # Actualizar el restante del plazo
-            db_plazo.restante -= pago_aplicado
-            excedente -= pago_aplicado
+            db_plazo.restante = round(db_plazo.restante - pago_aplicado, 1)
+            excedente = round(excedente - pago_aplicado, 1)
 
             # Marcar el plazo como completado si el restante es cero
             if db_plazo.restante <= 0:

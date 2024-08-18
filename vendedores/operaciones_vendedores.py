@@ -86,9 +86,16 @@ def valores_nulos(diccionario: esquemas.VendedorCreate, valores_nulo: list) -> b
 async def verificar_vendedor_existente(db: Session, vendedor: esquemas.VendedorCreate, identificador_vendedor: str = None, actualizando: bool = False) ->  bool:
     try:
         # Consulta para verificar RFC
-        vendedor_obtenido_RFC = db.query(modelos.Vendedores).filter(
+        query_vendedor_RFC = db.query(modelos.Vendedores).filter(
             modelos.Vendedores.RFC_vendedor == vendedor.RFC_vendedor
-        ).first()
+        )
+
+        if actualizando:
+            query_vendedor_RFC = query_vendedor_RFC.filter(
+                modelos.Vendedores.id_vendedor != identificador_vendedor
+            )
+
+        vendedor_obtenido_RFC = query_vendedor_RFC.first()
 
         # Verificar si existe el RFC
         if vendedor_obtenido_RFC and vendedor_obtenido_RFC.RFC_vendedor:
